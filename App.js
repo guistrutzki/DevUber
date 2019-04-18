@@ -7,11 +7,15 @@ import ReduxThunk from 'redux-thunk';
 import Reducers from './src/Reducers';
 
 import Preload from './src/screens/Preload';
+import Login from "./src/screens/Login";
 
 const AppNavigator = createStackNavigator({
   Preload: {
     screen: Preload
   },
+  Login: {
+    screen: Login
+  }
 });
 
 const AppContainer = createAppContainer(AppNavigator);
