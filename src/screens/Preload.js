@@ -15,7 +15,7 @@ export class Preload extends Component {
 
     componentDidMount(){
         this.props.checkLogin();
-    }
+}
 
     componentDidUpdate(){
         this.verifyStatus();
@@ -25,7 +25,12 @@ export class Preload extends Component {
         switch (this.props.status){
             case 1:
                 // Manda usuario para Hone
-                alert ("Home");
+                this.props.navigation.dispatch(StackActions.reset({
+                    index: 0,
+                    actions: [
+                        NavigationActions.navigate({routeName: 'HomeNav'})
+                    ]
+                }));
                 break;
             case 2:
                 // Manda o usuário para login
@@ -37,7 +42,6 @@ export class Preload extends Component {
                 }));
                 break;
         }
-
     }
 
     render(){
