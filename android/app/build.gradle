@@ -94,6 +94,11 @@ def enableSeparateBuildPerCPUArchitecture = false
 def enableProguardInReleaseBuilds = false
 
 android {
+    
+     packagingOptions {
+      pickFirst '**/libjsc.so'
+    }
+    
     compileSdkVersion rootProject.ext.compileSdkVersion
 
     compileOptions {
@@ -138,6 +143,7 @@ android {
 }
 
 dependencies {
+    implementation project(':react-native-geolocation-service')
     implementation project(':react-native-gesture-handler')
     implementation project(':react-native-maps')
     implementation fileTree(dir: "libs", include: ["*.jar"])
